@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>test timer</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="random.js"></script>
+</head>
+<body onload="onLoadWindow()">
+    <div class="center">
+    	 <canvas id="timerCanvas" class="Timer">
+        </canvas>
+    </div>
+    <div>
+    		<input type="number" id="numInput" name="num" style="position: relative;width:200px;left:50%;margin-left: -100px">
+    		<input type="number" id="answerInput" style="position: relative;width:50%;left:50%;margin-left: -25%">
+    	
+    </div>
+    <h1 id="ques" style="position: relative;width:50%;left:50%;"></h1>
+    <div style="position:relative;width: 42px;left:50%;margin-left:-21px;margin-top:50px;">
+        <BUTTON id ="startBt"onClick="start()">start</BUTTON>
+        <Button id="readyBt" onClick="ready()">ready</Button>
+        <BUTTON id="subBt" onClick="submmit()">stop</BUTTON>
+    </div>
+    <div class="dialog-container">
+    <div class="dialog">
+      <div class="dialog-title">roll in roll!!</div>
+	  <p class="tip"><span>tip:</span>please input your name</p>
+      <div class="dialog-body">  
+		<input type="text" id="yourName" name="cityInput"  autofocus="autofocus" onkeydown="if(event.keyCode==13){addcity();}" style="width: 100%" /> 
+      </div>
+      <div class="dialog-buttons">
+        <button id="ok" class="button" onclick="ok()" style="width:6em;position: relative;left:50%;margin-left: -3em;">ok</button>
+      </div>
+    </div>
+	</div>
+    </div>
+</body>
+
+</html>

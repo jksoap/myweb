@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title>Soap's Weather</title>
+	<link rel="stylesheet" type="text/css" href="style/inline.css">
+	<link rel="stylesheet" type="text/css" href="style/angular-material.min.css">
+</head>
+<body ng-app="starterApp" ng-controller="homeCtrl" onkeydown="if(event.key==83){addwea();}">
+	<script src="../public/angular/angular.min.js"></script>
+	<script src="../public/angular/angular-animate.min.js"></script>
+	<script src="../public/angular/angular-aria.min.js"></script>
+	<script src="../public/angular/angular-material.min.js"></script>
+	
+	<header class="header">
+	<h1 class="header__title">Soap's weather</h1>
+	<md-button id="mdadd" class="md-fab md-mini" ng-mousedown="add();"></md-button>
+	<md-button id="mdrefresh" class="md-fab md-mini" ng-mousedown="refresh();"></md-button>
+	</header>
+	<div class="main">
+	<div class="card  cardTemplate  weather-forecast" hidden>
+	  <md-button id="butClose" class="md-fab md-mini"></md-button>
+      <div class="city-key" hidden></div>
+      <div class="location"></div>
+      <div class="description"></div>
+      <div class="current">
+        <div class="visual">
+          <div class="icon"></div>
+          <div class="temperature">
+            <span class="value"></span>
+			<span class="scale">°C</span>
+          </div>
+        </div>
+        <div class="description">
+          <div class="tempMax">
+            <span class="value">
+			</span><span class="scale">°C</span>
+          </div>
+		   <div class="tempMin">
+            <span class="value">
+			</span><span class="scale">°C</span>
+          </div>
+          <div class="precip">
+		  <span class="value"></span>
+		  </div>
+          <div class="wind">
+            <span class="value"></span>
+            <span class="scale">mph</span>
+            <span class="direction"></span>°
+          </div>
+        </div>
+      </div>
+      <div class="future">
+        <div class="oneday">
+          <div class="date"></div>
+          <div class="icon"></div>
+          <div class="temp-high">
+            <span class="value"></span>°/
+          </div>
+          <div class="temp-low">
+            <span class="value"></span>°
+          </div>
+        </div>
+        <div class="oneday">
+          <div class="date"></div>
+          <div class="icon"></div>
+          <div class="temp-high">
+            <span class="value"></span>°/
+          </div>
+          <div class="temp-low">
+            <span class="value"></span>°
+          </div>
+        </div>
+        <div class="oneday">
+          <div class="date"></div>
+          <div class="icon"></div>
+          <div class="temp-high">
+            <span class="value"></span>°/
+          </div>
+          <div class="temp-low">
+            <span class="value"></span>°
+          </div>
+        </div>
+        <div class="oneday">
+          <div class="date"></div>
+          <div class="icon"></div>
+          <div class="temp-high">
+            <span class="value"></span>°/
+          </div>
+          <div class="temp-low">
+            <span class="value"></span>°
+          </div>
+        </div>
+        <div class="oneday">
+          <div class="date"></div>
+          <div class="icon"></div>
+          <div class="temp-high">
+            <span class="value"></span>°/
+          </div>
+          <div class="temp-low">
+            <span class="value"></span>°
+          </div>
+        </div>
+      </div>
+    </div>
+	</div>
+	<div class="dialog-container">
+	<div class="dialog">
+      <div class="dialog-title">Add new city</div>
+	  <p class="tip"><span>tip:</span>you only can input pinyin or english</p>
+      <div class="dialog-body">  
+		<input type="text" id="selectCityToAdd" name="cityInput"  autofocus="autofocus" onkeydown="if(event.keyCode==13){addcity();}" /> 
+      </div>
+      <div class="dialog-buttons">
+        <button id="butAddCity" class="button">Add</button>
+        <button id="butAddCancel" class="button">cancel</button>
+      </div>
+    </div>
+	</div>
+	<div class="loader">
+    <div class="rect1"></div>
+	<div class="rect2"></div>
+	<div class="rect3"></div>
+	<div class="rect4"></div>
+	<div class="rect5"></div>
+	</div>
+	<script src="../public/jquery.js"></script>
+	<script src="script/app.js"></script>
+	<script>
+	angular.module('starterApp',['ngMaterial']).controller('homeCtrl', function ($scope) {
+	$scope.refresh=function(){
+		location.reload(true);
+	};
+})
+	</script>
+</body>
+
+</html>

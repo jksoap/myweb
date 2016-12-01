@@ -1,0 +1,79 @@
+.Timer{
+width:100%;
+height: 100px;
+}
+.center{
+width:50%;
+margin-left: auto;
+margin-right: auto;
+
+}
+.dialog-container {
+  background: rgba(0, 0, 0, 0.57);
+  position: fixed;
+  z-index:2;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+  will-change: opacity;
+  -webkit-transition: opacity 0.333s cubic-bezier(0, 0, 0.21, 1);
+  transition: opacity 0.333s cubic-bezier(0, 0, 0.21, 1); }
+
+.dialog-container--visible {
+  opacity: 1;
+  pointer-events: auto; }
+
+.dialog {
+  background: #FFF;
+  border-radius: 2px;
+  box-shadow: 0 0 14px rgba(0, 0, 0, 0.24), 0 14px 28px rgba(0, 0, 0, 0.48);
+  min-width: 280px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%) translateY(30px);
+          transform: translate(-50%, -50%) translateY(30px);
+  -webkit-transition: -webkit-transform 0.333s cubic-bezier(0, 0, 0.21, 1) 0.05s;
+  transition: -webkit-transform 0.333s cubic-bezier(0, 0, 0.21, 1) 0.05s;
+  transition: transform 0.333s cubic-bezier(0, 0, 0.21, 1) 0.05s;
+  transition: transform 0.333s cubic-bezier(0, 0, 0.21, 1) 0.05s, -webkit-transform 0.333s cubic-bezier(0, 0, 0.21, 1) 0.05s; }
+
+.dialog > div {
+  padding-left: 24px;
+  padding-right: 24px; }
+
+.dialog-title {
+	position: relative;
+  padding-top: 20px;
+  font-size: 1.25em; 
+  left:50%;
+  margin-left:-9ex;
+}
+
+.dialog-body {
+  padding-top: 20px;
+  padding-bottom: 24px; }
+  .dialog-body select {
+    width: 100%;
+    font-size: 2em; }
+
+.dialog-buttons {
+ position:relative;
+ 
+ padding:8px;
+ 
+  }
+p.tip span{
+  font-weight:bold;
+  color:#ff9955;
+}
+p.tip{
+  position: relative;;
+  left:50%;
+  margin-left: -14ex;
+  font-size: 10px;
+
+}
