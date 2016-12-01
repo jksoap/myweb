@@ -1,38 +1,79 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
+
 <head>
     <title>test timer</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <script type="text/javascript" src="random.js"></script>
+    <link rel="stylesheet" type="text/css" href="./styles/style.css">
+    <script type="text/javascript" src="./js/random.js"></script>
 </head>
+
 <body onload="onLoadWindow()">
     <div class="center">
-    	 <canvas id="timerCanvas" class="Timer">
-        </canvas>
+        <div class="center">
+            <canvas id="timerCanvas" class="Timer"></canvas>
+        </div>
     </div>
     <div>
-    		<input type="number" id="numInput" name="num" style="position: relative;width:200px;left:50%;margin-left: -100px">
-    		<input type="number" id="answerInput" style="position: relative;width:50%;left:50%;margin-left: -25%">
-    	
+        <input type="number" id="numInput" name="num" style="position: relative;width:200px;left:50%;margin-left: -100px">
+        <input type="number" id="answerInput" style="position: relative;width:50%;left:50%;margin-left: -25%">
     </div>
     <h1 id="ques" style="position: relative;width:50%;left:50%;"></h1>
     <div style="position:relative;width: 42px;left:50%;margin-left:-21px;margin-top:50px;">
-        <BUTTON id ="startBt"onClick="start()">start</BUTTON>
-        <Button id="readyBt" onClick="ready()">ready</Button>
-        <BUTTON id="subBt" onClick="submmit()">stop</BUTTON>
+        <BUTTON class="btn btn-lg btn-default" id="startBt" onClick="start()">start</BUTTON>
+        <Button class="btn btn-lg btn-default" id="readyBt" onClick="ready()">ready</Button>
+        <BUTTON class="btn btn-lg btn-default" id="subBt" onClick="submmit()">stop</BUTTON>
     </div>
-    <div class="dialog-container">
-    <div class="dialog">
-      <div class="dialog-title">roll in roll!!</div>
-	  <p class="tip"><span>tip:</span>please input your name</p>
-      <div class="dialog-body">  
-		<input type="text" id="yourName" name="cityInput"  autofocus="autofocus" onkeydown="if(event.keyCode==13){addcity();}" style="width: 100%" /> 
-      </div>
-      <div class="dialog-buttons">
-        <button id="ok" class="button" onclick="ok()" style="width:6em;position: relative;left:50%;margin-left: -3em;">ok</button>
-      </div>
+    <div id="leftname" class="dialog-container">
+        <div class="dialog">
+            <div class="dialog-title">roll in roll!!</div>
+            <p class="tip"><span>tip:</span>please input your name</p>
+            <div class="dialog-body">
+                <input type="text" id="yourName"  autofocus="autofocus" onkeydown="if(event.keyCode==13){ok();}" style="width: 100%" />
+            </div>
+            <div class="dialog-buttons">
+                <button id="ok" class="btn btn-lg btn-default" onClick="ok()" style="width:6em;position: relative;left:50%;margin-left: -3em;">ok</button>
+            </div>
+        </div>
     </div>
-	</div>
+    <div id="wrongTip" class="dialog-container">
+        <div class="dialog">
+            <div class="dialog-title">you wrong</div>
+            <p class="tip"><span>tip:</span>please input your name</p>
+            <div class="center">
+   			<h5>正确答案:</h5><h5 id="rightAnswer"></h5>
+   			<h5>你的答案:</h5><h5 id="yourAnswer"></h5>
+   			</div>
+            <div class="dialog-buttons">
+                <button  class="btn btn-lg btn-default" onClick="back()" style="width:6em;position: relative;left:50%;margin-left: -3em;">back</button>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="center">
+    	<h5 id="tip1">input a length of the number you want to test.</h5>
+    	<h5 id="tip2">remember this number and input it after click button 'ready'</h5>
+    	<h5 id="tip3">input the number </h5>
+    </div>
+    <div class="table table-responsive ComfortLocate">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>排名</th>
+                    <th>名号</th>
+                    <th>长度</th>
+                    <th>时间</th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+                <tr id="rankRow" hidden="">
+                    <td id="rank"></td>
+                    <td id="name"></td>
+                    <td id="length"></td>
+                    <td id="time"></td>
+                </tr>
+            </tbody>
+        </table>
+        <button id="clBt" class="btn btn-lg btn-default" onClick="RankClear();">清除所有记录</button>
     </div>
 </body>
 
